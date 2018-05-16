@@ -1,0 +1,20 @@
+<h1> Favorite Authors</h1>
+<h3>We have quotes by: </h3>
+<div class="results">
+  <table>
+    <tr>
+      <th>Author</th>
+      <th>Actions Available</th>
+    </tr>
+    <tr  *ngFor="let author of authors">
+      <td>
+        {{author.name}}
+      </td>
+      <td>
+        <button (click)='edit(author._id)' value="edit">Edit</button>
+        <button (click)='viewQuotes(author._id)' value="delete">ViewQuotes</button>
+      </td>
+    </tr>
+  </table>
+</div>
+   

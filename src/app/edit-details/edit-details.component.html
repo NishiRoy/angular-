@@ -1,0 +1,8 @@
+<h1>Favorite Author</h1>
+<h3>Edit this Author:</h3>
+<form (submit)='onSubmit($event)'>
+    Name: <input type="text" name="authors.name"[(ngModel)]="authors.name"><br/><br/>
+    <button type="submit">Submit</button>
+  </form>
+    <br/><br/>
+  <button (click)='cancel()' type="submit">Cancel</button>

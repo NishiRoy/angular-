@@ -1,0 +1,7 @@
+<h2>Provide a Quote by {{author.name}}</h2>
+
+<form (submit)='onSubmit($event)'>
+    <input type="text" name="posts.content" [(ngModel)]="posts.content"/>
+    <button type="submit">Submit</button>
+    <button (click)='cancel()'>Cancel</button>
+</form>

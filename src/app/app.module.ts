@@ -1,18 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule,routingcomponent } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import {HttpClientModule} from '@angular/common/http';
+import {AuthorService} from './author.service';
+import { FormsModule } from '@angular/forms';
+import { AddQuotesComponent } from './add-quotes/add-quotes.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    routingcomponent,
+    AddQuotesComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
   ],
-  providers: [],
+  providers: [AuthorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
