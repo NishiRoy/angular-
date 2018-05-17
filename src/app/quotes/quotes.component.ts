@@ -21,8 +21,14 @@ export class QuotesComponent implements OnInit {
   ngOnInit() {
 
   
-
     this.id= this.route.snapshot.paramMap.get('id');
+
+    this.onload();
+
+    
+    }
+
+    onload(){
 
     console.log("Whatever",this.id);
 
@@ -35,8 +41,6 @@ export class QuotesComponent implements OnInit {
       console.log("Hey Bhagwan",this.author[0]);
   
     });
-
-    
     }
   
 
@@ -46,28 +50,35 @@ export class QuotesComponent implements OnInit {
 
     console.log("votes",this.count)
 
-    let voteObservable=this._authorService.editPost(this.count,this.id);
+    let voteObservable=this._authorService.editPost(this.count,idi);
 
     voteObservable.subscribe(data=>{
       console.log("Votes updated",data);
     })
+
+    this.onload();
   }
 
   voteDown(idi,vote){
 
-    this.count =vote+1;
+    this.count =vote-1;
 
-    let voteObservable=this._authorService.editPost(this.count,this.id);
+    let voteObservable=this._authorService.editPost(this.count,idi);
 
     voteObservable.subscribe(data=>{
       console.log("Votes updated",data);
     })
+
+    this.onload();
 
   }
 
   delete(idi){
 
     let del=this._authorService.destroy(idi);
+    del.subscribe(data=>console.log("deleted stuff",data));
+
+    this.onload();
 
   }
 }

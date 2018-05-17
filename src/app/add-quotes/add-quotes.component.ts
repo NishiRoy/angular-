@@ -25,6 +25,10 @@ export class AddQuotesComponent implements OnInit {
     }
 
     this.id= this.route.snapshot.paramMap.get('id');
+    this.onload();
+  }
+
+  onload(){
 
     console.log("Hey from Id",this.id);
 
@@ -53,6 +57,9 @@ export class AddQuotesComponent implements OnInit {
     tempObservable.subscribe(data=>{
       console.log(data);
     })
+
+    this.router.navigate(['/quotes',this.id]);
+    // this.onload();
   }
 
 }
